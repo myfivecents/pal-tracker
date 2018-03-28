@@ -82,3 +82,5 @@ jobs:
       path: pal-tracker-artifacts/pal-tracker-*.jar
       environment_variables:
         WELCOME_MESSAGE: "Hello from the production environment"
+
+
