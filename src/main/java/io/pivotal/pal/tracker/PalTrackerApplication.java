@@ -9,6 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
+import javax.sql.DataSource;
+
 
 /**
  * Created by accenturelabs on 3/26/18.
@@ -20,8 +22,8 @@ public class PalTrackerApplication {
     }
 
     @Bean
-    public TimeEntryRepository makeTimeEntryRepository() {
-        return new InMemoryTimeEntryRepository();
+    public TimeEntryRepository makeTimeEntryRepository(DataSource dataSource) {
+        return new JdbcTimeEntryRepository(dataSource);
     }
 
     @Bean
